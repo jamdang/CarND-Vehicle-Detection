@@ -13,7 +13,7 @@ The goals / steps of this project are the following:
 [//]: # (Image References)
 [image1]: ./output_images/car_notcar_example.png
 [image2]: ./output_images/multi_test3.png
-[image3]: ./examples/sliding_windows.jpg
+[image3]: ./output_images/multi_test6.png
 [image4]: ./examples/sliding_window.jpg
 [image5]: ./examples/bboxes_and_heat.png
 [image6]: ./examples/labels_map.png
@@ -90,6 +90,7 @@ In section 2.1 (Detect vehicle regions with sliding windows) I implemented a fix
 Ultimately I searched on two scales using YCrCb 3-channel HOG features plus spatially binned color and histograms of color in the feature vector, which provided a nice result.  Here are some example images:
 
 ![alt text][image2]
+![alt text][image3]
 ---
 
 ### Video Implementation
