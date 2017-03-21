@@ -14,7 +14,7 @@ The goals / steps of this project are the following:
 [image1]: ./output_images/car_notcar_example.png
 [image2]: ./output_images/multi_test3.png
 [image3]: ./output_images/multi_test6.png
-[image4]: ./output_images/fuse_test3.jpg
+[image4]: ./output_images/fuse_test3.png
 [image5]: ./output_images/fuse_test1.png
 [image6]: ./output_images/fuse_test6.png
 [image7]: ./examples/output_bboxes.png
