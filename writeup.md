@@ -14,11 +14,11 @@ The goals / steps of this project are the following:
 [image1]: ./output_images/car_notcar_example.png
 [image2]: ./output_images/multi_test3.png
 [image3]: ./output_images/multi_test6.png
-[image4]: ./examples/sliding_window.jpg
-[image5]: ./examples/bboxes_and_heat.png
-[image6]: ./examples/labels_map.png
+[image4]: ./output_images/fuse_test3.jpg
+[image5]: ./output_images/fuse_test1.png
+[image6]: ./output_images/fuse_test6.png
 [image7]: ./examples/output_bboxes.png
-[video1]: ./project_video.mp4
+[video1]: ./project_video_output.mp4
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/513/view) Points
 ### Here I will consider the rubric points individually and describe how I addressed each point in my implementation.  
@@ -96,7 +96,7 @@ Ultimately I searched on two scales using YCrCb 3-channel HOG features plus spat
 ### Video Implementation
 
 #### 1. Provide a link to your final video output.  Your pipeline should perform reasonably well on the entire project video (somewhat wobbly or unstable bounding boxes are ok as long as you are identifying the vehicles most of the time with minimal false positives.)
-Here's a [link to my video result](./project_video.mp4)
+Here's a [link to my video result](./project_video_output.mp4)
 
 
 #### 2. Describe how (and identify where in your code) you implemented some kind of filter for false positives and some method for combining overlapping bounding boxes.
@@ -105,13 +105,11 @@ I recorded the positions of positive detections in each frame of the video.  Fro
 
 Here's an example result showing the heatmap from a series of frames of video, the result of `scipy.ndimage.measurements.label()` and the bounding boxes then overlaid on the last frame of video:
 
-### Here are six frames and their corresponding heatmaps:
+### Here are 3 frames and their corresponding heatmaps:
 
+![alt text][image4]
 ![alt text][image5]
-
-
-### Here the resulting bounding boxes are drawn onto the last frame in the series:
-![alt text][image7]
+![alt text][image6]
 
 Also I implemented a tracking mechanism (in cell 16) to track and filter the detected vehicle's centroid position, velocity and its size. For every new frame, I first (1) predicted the current vehicle position based on its last step position and velocity, then I iterate through the detected vehicles at this step and try to (2) associate the current detection with previous (filtered) detections, then (3) update those vehicles with current step measurement, and fianlly, (4) if some detected vehicle is lost for too long, delete them.
 
