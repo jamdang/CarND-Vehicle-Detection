@@ -82,9 +82,8 @@ In section 1.4 (Classifier Training), I trained a linear SVM by first creating t
 
 #### 1. Describe how (and identify where in your code) you implemented a sliding window search.  How did you decide what scales to search and how much to overlap windows?
 
-I decided to search random window positions at random scales all over the image and came up with this (ok just kidding I didn't actually ;):
+In section 2.1 (Detect vehicle regions with sliding windows) I implemented a fixed sized sliding window search, with the original window size of 64 and scale 1.5, cells_per_step is chosen to be 2. As stated above, these parameters are also selected in a trial-and-error manner.  
 
-![alt text][image3]
 
 #### 2. Show some examples of test images to demonstrate how your pipeline is working.  What did you do to optimize the performance of your classifier?
 
@@ -109,13 +108,11 @@ Here's an example result showing the heatmap from a series of frames of video, t
 
 ![alt text][image5]
 
-### Here is the output of `scipy.ndimage.measurements.label()` on the integrated heatmap from all six frames:
-![alt text][image6]
 
 ### Here the resulting bounding boxes are drawn onto the last frame in the series:
 ![alt text][image7]
 
-
+Also I implemented a tracking mechanism (in cell 16) to track and filter the detected vehicle's centroid position, velocity and its size. For every new frame, I first (1) predicted the current vehicle position based on its last step position and velocity, then I iterate through the detected vehicles at this step and try to (2) associate the current detection with previous (filtered) detections, then (3) update those vehicles with current step measurement, and fianlly, (4) if some detected vehicle is lost for too long, delete them.
 
 ---
 
@@ -123,5 +120,6 @@ Here's an example result showing the heatmap from a series of frames of video, t
 
 #### 1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
 
-Here I'll talk about the approach I took, what techniques I used, what worked and why, where the pipeline might fail and how I might improve it if I were going to pursue this project further.  
+By including the tracking mechanism the result is much improved. Actually I probably spent more time than I should in the tracking (filtering) part and less time than I should in the detecting part. If I had more time I'd tune/train my classifier to be more robust and improve the sliding window search and classify to make detection more robust also. 
+
 
