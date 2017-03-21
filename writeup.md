@@ -70,7 +70,13 @@ hog_feat = True         # HOG features on or off
 
 #### 3. Describe how (and identify where in your code) you trained a classifier using your selected HOG features (and color features if you used them).
 
-I trained a linear SVM using...
+After reading in all the images I performed (in section 1.3 Data Preparation) the following steps to prepare the data (both training and test data) used for classifier traning:
+1) feature extraction 
+2) feature normalization 
+3) data labeling 
+4) data random shuffling
+
+In section 1.4 (Classifier Training), I trained a linear SVM by first creating the SVM `svc = LinearSVC()` (imported from sklearn.svm) and then training it using `svc.fit(X_train, y_train)`. The tested accuracy obtained by `svc.score(X_test, y_test)` is around 0.99. 
 
 ### Sliding Window Search
 
